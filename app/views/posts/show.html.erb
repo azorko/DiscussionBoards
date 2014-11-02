@@ -1,7 +1,13 @@
 <h1><%= @post.title %> </h1>
 <p> <%= @post.content %> </p>
 
+<h4> Comments </h4>
+<%= render "comments/top_level", all_comments: @post.comments.includes(:user), comments_by_parent_id: @post.comments_by_parent_id %>
+
+<h4> New Post Comment </h4>
+<%= render "comments/new", post: @post, comment: nil %>
+
 <% if current_user.id == @post.user_id%>
   <%= link_to "Edit Post", edit_post_url(@post)%><br>
 <%end%>
-<%= link_to "Back to Subtopic", sub_url(@post.sub_id)%>
+<%= link_to "Back to All subtopics", subs_url%>

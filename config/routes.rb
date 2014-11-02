@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  root to: "sessions#new"
+  root to: "subs#index"
   resources :users
   resource :session, only: [:new, :create, :destroy]
-  resources :subs do
-    resources :posts, only: [:new]
-  end
+  resources :subs
   
-  resources :posts, except: [:new]
+  resources :posts do
+    resources :comments, only: [:new, :create]
+  end
 end

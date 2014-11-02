@@ -1,0 +1,20 @@
+<%comments_by_parent_id[nil].each do |comment_hash|%>
+  <ul>
+	  <% comment = all_comments.find(comment_hash[:id]) %>
+	  
+	  <label><%=comment.user.username %> created at: <%= comment_hash[:created_at] %>
+	    <li><%=comment_hash[:content]%></li>
+	  </label>
+	  
+	  <%= render "comments/comment",
+	  all_comments: all_comments,
+	  comments_by_parent_id: comments_by_parent_id,
+	  parent_id: comment.id %>
+	  
+	  <h4>Create Sub Comment </h4>
+	  <li><%= render "comments/new",
+		  comment: comment,
+		  post: comment.post%>
+	  </li>
+  </ul>
+<%end%>

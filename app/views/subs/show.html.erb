@@ -9,5 +9,5 @@
 <% if current_user.id == @sub.user_id%>
   <%= link_to "Edit Subtopic", edit_sub_url(@sub)%><br>
 <%end%>
-<%= link_to "Create Post", new_sub_post_url(@sub) %><br>
+<%= link_to "Create Post", new_post_url %><br>
 <%= link_to "All Subtopics", subs_url%>
