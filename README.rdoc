@@ -2,4 +2,4 @@ Project: Reddit Clone
 
 Focus:
 
--practice authentication, routes, controllers, views
+-practice user authentication, routes, controllers, views
